@@ -1,11 +1,11 @@
-# Losung360-assignment
+# Losung360-Assignment
 
 ## To-Do Application
 This is a simple to-do application built using React and has data persistence using local storage. The application allows users to create, edit, and delete tasks.
 
 <img width="1440" alt="Screenshot 2023-02-24 at 9 31 21 AM" src="https://user-images.githubusercontent.com/114471571/221091009-6a8fc7cc-f66f-4ee3-a7b2-ba6bdcff8bd3.png">
 
-Checkout the deployed live version on [Netlify](https://curious-sundae-7bf33d.netlify.app/).
+Checkout the deployed live version on [Netlify](https://delicate-gnome-59fef0.netlify.app/).
 
 
 ## Getting Started
