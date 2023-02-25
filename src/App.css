@@ -81,6 +81,11 @@ button {
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  text-align: left;
+}
+
+.todo-child span {
+  width: 95%;
 }
 
 .edit-input {
@@ -95,10 +100,6 @@ button {
   margin-bottom: 20px;
 }
 
-.todo.child input{
-  height: 20px;
-  width: 20px;
-}
 
 .delete-completed {
   margin-top: 20px;
