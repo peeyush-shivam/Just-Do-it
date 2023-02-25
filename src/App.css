@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #003950;
+    color: #ffffff;
+    font-family: "Nunito", sans-serif;
+}
+
+#root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+  width: 80%;
+  height: fit-content;
+  max-width: 900px;
+  padding: 30px;
+  margin: 5% auto;
+  background: #0000004d;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0px #00000045;
+  display: flex;
+  justify-content: center;
+}
+.form-and-todo-box{
+  width: 95%;
+}
+.input-and-button {
+  display: flex;
+  justify-content: center;
+}
+
+.input-and-button input {
+  width: 70%;
+  padding: 13px 20px;
+  outline: none;
+  border: none;
+  background-color: #eee;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #008e9f;
+  padding: 13px 30px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+}
+
+.todo {
+  margin: 10px 0px 10px 0px;
+  height: fit-content;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  background: rgb(0, 150, 136);
+  color: #ffffff;
+  font-size: 18px;
+  word-wrap: normal;
+}
+
+.todo-child {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-input {
+  width: 65%;
+  padding: 13px 20px;
+  outline: none;
+  border: none;
+  background-color: #eee;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.todo.child input{
+  height: 20px;
+  width: 20px;
+}
+
+.delete-completed {
+  margin-top: 20px;
+}
+
+.checkbox{
+  height: 20px;
+  width: 20px;
+}
+
+.warning{
+  height: 20px;
+  width: 100px;
+}
