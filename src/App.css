@@ -53,7 +53,7 @@ body {
   margin-bottom: 20px;
 }
 
-button {
+.input-and-button button {
   cursor: pointer;
   background-color: #008e9f;
   padding: 13px 30px;
@@ -87,8 +87,11 @@ button {
 .todo-child span {
   width: 95%;
 }
-
+.todo form {
+  display: flex;
+}
 .edit-input {
+  height: 18px;
   width: 65%;
   padding: 13px 20px;
   outline: none;
@@ -97,12 +100,31 @@ button {
   border-radius: 10px;
   font-size: 0.9rem;
   font-family: inherit;
-  margin-bottom: 20px;
 }
 
+.todo button {
+  cursor: pointer;
+  background-color: #008e9f;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+  padding: 5px 10px;
+}
 
-.delete-completed {
+.delete-completed button {
   margin-top: 20px;
+  cursor: pointer;
+  background-color: #008e9f;
+  padding: 13px 30px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
 }
 
 .checkbox{
