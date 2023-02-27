@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const TodoApp = () => {
   // This function retrieves todos from local storage
@@ -17,6 +17,9 @@ const TodoApp = () => {
   const [completedTodos, setCompletedTodos] = useState([]);
   const [editForm, setEditForm] = useState(false);
   const [id, setId] = useState();
+
+    // Ref for the edit input
+    const editInputRef = useRef(null);
 
   // Function to handle form submission for adding a todo
   const handleSubmit = (e) => {
@@ -71,11 +74,18 @@ const TodoApp = () => {
     setEditForm(false);
   };
 
+    // useEffect to focus the edit input when the edit form is opened
+    useEffect(() => {
+      if (editForm && editInputRef.current) {
+        editInputRef.current.focus();
+      }
+    }, [editForm]);
+
   // JSX for the todo app
 
   return (
     <div>
-      {editForm === false && (
+
         <div className='form'>
           <form autoComplete='off' onSubmit={handleSubmit}>
             <div className='input-and-button'>
@@ -84,7 +94,7 @@ const TodoApp = () => {
                 placeholder='Start adding tasks'
                 required
                 onChange={(e) => setTodoValue(e.target.value)}
-                value={todoValue}
+                value={editForm ? '' : todoValue}
               />
               <div className='button'>
                 <button type='submit'>Add</button>
@@ -92,55 +102,57 @@ const TodoApp = () => {
             </div>
           </form>
         </div>
-      )}
 
-      {editForm === true && (
-        <div className='form'>
-          <form autoComplete='off' onSubmit={handleEditSubmit}>
-            <input
-              type='text'
-              placeholder='Add an Item'
-              required
-              onChange={(e) => setTodoValue(e.target.value)}
-              value={todoValue}
-              className='edit-input'
-            />
-            <button type='submit'>Update</button>
-          </form>
-        </div>
-      )}
-
-      {todos.length > 0 && (
-        <div>
-          {todos.map((individualTodo, index) => (
-            <div className='todo' key={individualTodo.ID} onDoubleClick={() => handleEdit(individualTodo, index)}>
-              <div className='todo-child'>
-                <input
-                  type='checkbox'
-                  checked={individualTodo.completed}
-                  onChange={() => handleToggleComplete(individualTodo.ID)}
-                  className='checkbox'
-                />
-                <span>{individualTodo.TodoValue}</span>
+        {todos.length > 0 && (
+          <div>
+            {todos.map((individualTodo, index) => (
+              <div className='todo' key={individualTodo.ID}>
+                {!editForm || id !== index ? (
+                  // Render todo item when edit form is not open or this todo is not being edited
+                  <div className='todo-child' onDoubleClick={() => handleEdit(individualTodo, index)}>
+                    <input
+                      type='checkbox'
+                      checked={individualTodo.completed}
+                      onChange={() => handleToggleComplete(individualTodo.ID)}
+                      className='checkbox'
+                    />
+                    <span>{individualTodo.TodoValue}</span>
+                  </div>
+                ) : (
+                  // Render edit form when edit form is open and this todo is being edited
+                  <form autoComplete='off' onSubmit={handleEditSubmit}>
+                    <input
+                      type='text'
+                      placeholder='Add an Item'
+                      required
+                      onChange={(e) => setTodoValue(e.target.value)}
+                      value={todoValue}
+                      className='edit-input'
+                      ref={editInputRef}
+                    />
+                    <button type='submit-edit'>Update</button>
+                  </form>
+                )}
               </div>
+            ))}
+
+            <div className='delete-completed'>
+              {todos.length > 0 && (
+                <button
+                  onClick={() => {
+                    const newTodos = todos.filter((todo) => !todo.completed);
+                    setTodos(newTodos);
+                    setCompletedTodos([]);
+                  }}
+                >
+                  Clear Completed
+                </button>
+              )}
+            </div>
           </div>
-          ))}
-
-              <div className='delete-completed'>
-                { todos.length > 0 
-                  && <button onClick={() => {
-                      const newTodos = todos.filter((todo) => !todo.completed);
-                      setTodos(newTodos);
-                      setCompletedTodos([]);
-                        }}>
-                        Clear Completed
-                    </button> 
-                }
-              </div>
-        </div>
-      )}
+        )}
     </div>
-    )
+  )
 }
 
 export default TodoApp;
