@@ -1,0 +1,16 @@
+{
+    "name": "Just Do It",
+    "short_name": "To-do",
+    "icons": [
+      {
+        "src": "check-list.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "rgb(0, 150, 136)",
+    "background_color": "#003950"
+  }
+  
