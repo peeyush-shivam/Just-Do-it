@@ -91,7 +91,7 @@ const TodoApp = () => {
             <div className='input-and-button'>
               <input
                 type='text'
-                placeholder='Start adding tasks'
+                placeholder="I'll do...."
                 required
                 onChange={(e) => setTodoValue(e.target.value)}
                 value={editForm ? '' : todoValue}
@@ -123,7 +123,7 @@ const TodoApp = () => {
                   <form autoComplete='off' onSubmit={handleEditSubmit}>
                     <input
                       type='text'
-                      placeholder='Add an Item'
+                      placeholder='Instead...'
                       required
                       onChange={(e) => setTodoValue(e.target.value)}
                       value={todoValue}
